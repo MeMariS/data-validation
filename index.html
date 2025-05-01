@@ -23,6 +23,7 @@
 Дополнительно:  
 - Стилизуй форму: сделай аккуратные отступы, выравнивание, задай размеры полей и кнопки.
 - Со звездочкой(!): Ошибки должны исчезать автоматически, если пользователь исправляет значение и оно становится правильным.
+-- Подсказка: слушаем ивент input на инпуте и реагируем на него: проверяем, верно ли заполнен инпут
 - По желанию: добавить лёгкий анимационный эффект при появлении или исчезновении ошибок через CSS transition. -->
 
 <!DOCTYPE html>
@@ -35,12 +36,29 @@
   </head>
   <body>
     <form id="registration">
-      <input type="text" id="name" placeholder="Имя" required />
-      <input type="email" id="email" placeholder="Email" required />
-      <input type="password" id="password" placeholder="Пароль" required />
-      <input type="number" id="age" placeholder="Возраст" required />
+      <input type="text" id="name" placeholder="Имя" />
+      <p class="error-text">Имя не должно быть пустым</p>
+      <input type="email" id="email" placeholder="Email" />
+      <p class="error-text">Email заполнен неверно</p>
+      <input type="password" id="password" placeholder="Пароль" />
+      <p class="error-text">Пароль заполнен неверно</p>
+      <input type="number" id="age" placeholder="Возраст" />
+      <p class="error-text">Возраст заполнен неверно</p>
       <button type="submit">Отправить</button>
     </form>
+    <!-- <div id="parent" style="background-color: orange">
+      <div id="1" class="square green"></div>
+      <div id="2" class="square green"></div>
+      <div id="3" class="square green"></div>
+      <div id="4" class="square green"></div>
+      <div id="5" class="square green"></div>
+      <div id="6" class="square green"></div>
+      <div id="7" class="square green"></div>
+      <div id="8" class="square green"></div>
+      <div id="9" class="square green"></div>
+      <div id="10" class="square green"></div>
+      <div id="11" class="square green"></div>
+    </div> -->
     <script src="script.js"></script>
   </body>
 </html>
