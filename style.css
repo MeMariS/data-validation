@@ -1,0 +1,34 @@
+body {
+  font-family: sans-serif;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  gap: 10px;
+}
+
+input {
+  font-size: 18px;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+button {
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 8px;
+  background-color: antiquewhite;
+  border: none;
+}
+
+button:hover {
+  background-color: blanchedalmond;
+}
+
+.error {
+  border: 2px solid red;
+  transition: 0.3 s;
+}
