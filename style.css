@@ -9,6 +9,10 @@ form {
   gap: 10px;
 }
 
+label {
+  display: block;
+}
+
 input {
   font-size: 18px;
   padding: 8px;
