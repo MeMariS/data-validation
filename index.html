@@ -37,13 +37,13 @@
   <body>
     <form id="registration">
       <input type="text" id="name" placeholder="Имя" />
-      <p class="error-text">Имя не должно быть пустым</p>
+      <p class="error-text hidden"  id="error-name">Имя не должно быть пустым</p>
       <input type="email" id="email" placeholder="Email" />
-      <p class="error-text">Email заполнен неверно</p>
+      <p class="error-text hidden" id="error-email">Email заполнен неверно</p>
       <input type="password" id="password" placeholder="Пароль" />
-      <p class="error-text">Пароль заполнен неверно</p>
+      <p class="error-text hidden" id="error-password">Пароль заполнен неверно</p>
       <input type="number" id="age" placeholder="Возраст" />
-      <p class="error-text">Возраст заполнен неверно</p>
+      <p class="error-text hidden" id="error-age">Возраст заполнен неверно</p>
       <button type="submit">Отправить</button>
     </form>
     <!-- <div id="parent" style="background-color: orange">

@@ -54,33 +54,46 @@ form.addEventListener("submit", (event) => {
 function handleInputChange(event) {
   const input = event.target;
   input.classList.remove("error");
+  const id = input.id;
+  const errorMessageEl = document.getElementById(`error-${id}`)  
+  
 
-  if (input.id === inputName && input.value === "") {
+  if (input.id === 'name' && input.value === "") {
     input.classList.add("error");
+    errorMessageEl.classList.remove("hidden");
+    return;
   }
 
-  if (input.id === inputEmail && !input.value.includes("@")) {
+  if (input.id === 'email' && !input.value.includes("@")) {
     input.classList.add("error");
+    errorMessageEl.classList.remove("hidden");
+    return;
   }
 
-  if (input.id === inputPassword && input.value.length < 6) {
+  if (input.id === 'password' && input.value.length < 6) {
     input.classList.add("error");
+    errorMessageEl.classList.remove("hidden");
+    return;
   }
 
-  if (input.id === inputAge) {
+  if (input.id === 'age') {
     const age = parseInt(input.value, 10);
     if (isNaN(age) || age < 0 || age > 120) {
       input.classList.add("error");
+      errorMessageEl.classList.remove("hidden");
+      return;
     }
   }
+
+  errorMessageEl.classList.add("hidden");
 }
 
-const nameError = document.getElementById("name");
-const emailError = document.getElementById("email");
-const passwordError = document.getElementById("password");
-const ageError = document.getElementById("age");
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const passwordInput = document.getElementById("password");
+const ageInput = document.getElementById("age");
 
-nameError.addEventListener("input", handleInputChange);
-emailError.addEventListener("input", handleInputChange);
-passwordError.addEventListener("input", handleInputChange);
-ageError.addEventListener("input", handleInputChange);
+nameInput.addEventListener("input", handleInputChange);
+emailInput.addEventListener("input", handleInputChange);
+passwordInput.addEventListener("input", handleInputChange);
+ageInput.addEventListener("input", handleInputChange);
