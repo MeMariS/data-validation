@@ -2,40 +2,40 @@ const form = document.getElementById("registration");
 
 form.addEventListener("submit", (event) => {
   console.log("Submit event fired!");
-  const inputName = document.getElementById("name");
-  const inputEmail = document.getElementById("email");
-  const inputPassword = document.getElementById("password");
-  const inputAge = document.getElementById("age");
+  const nameInput = document.getElementById("name");
+  const emailInput = document.getElementById("email");
+  const passwordInput = document.getElementById("password");
+  const ageInput = document.getElementById("age");
 
-  const name = inputName.value;
-  const email = inputEmail.value;
-  const password = inputPassword.value;
-  const age = Number(inputAge.value);
+  const name = nameInput.value;
+  const email = emailInput.value;
+  const password = passwordInput.value;
+  const age = Number(ageInput.value);
 
   let hasError = false;
 
-  inputName.classList.remove("error");
-  inputEmail.classList.remove("error");
-  inputPassword.classList.remove("error");
-  inputAge.classList.remove("error");
+  nameInput.classList.remove("error");
+  emailInput.classList.remove("error");
+  passwordInput.classList.remove("error");
+  ageInput.classList.remove("error");
 
   if (name === "") {
-    inputName.classList.add("error");
+    nameInput.classList.add("error");
     hasError = true;
   }
 
   if (!email.includes("@")) {
-    inputEmail.classList.add("error");
+    emailInput.classList.add("error");
     hasError = true;
   }
 
   if (password.length < 6) {
-    inputPassword.classList.add("error");
+    passwordInput.classList.add("error");
     hasError = true;
   }
 
   if (!age || isNaN(age) || age < 0 || age > 120) {
-    inputAge.classList.add("error");
+    ageInput.classList.add("error");
     hasError = true;
   }
 
@@ -55,22 +55,32 @@ function handleInputChange(event) {
   const input = event.target;
   input.classList.remove("error");
 
-  if (input === inputName && input.value === "") {
+  if (input.id === inputName && input.value === "") {
     input.classList.add("error");
   }
 
-  if (input === inputEmail && input.value.includes("@")) {
+  if (input.id === inputEmail && !input.value.includes("@")) {
     input.classList.add("error");
   }
 
-  if (input === inputPassword && input.value.length < 6) {
+  if (input.id === inputPassword && input.value.length < 6) {
     input.classList.add("error");
   }
 
-  if (input === inputAge) {
+  if (input.id === inputAge) {
     const age = parseInt(input.value, 10);
     if (isNaN(age) || age < 0 || age > 120) {
       input.classList.add("error");
     }
   }
 }
+
+const nameError = document.getElementById("name");
+const emailError = document.getElementById("email");
+const passwordError = document.getElementById("password");
+const ageError = document.getElementById("age");
+
+nameError.addEventListener("input", handleInputChange);
+emailError.addEventListener("input", handleInputChange);
+passwordError.addEventListener("input", handleInputChange);
+ageError.addEventListener("input", handleInputChange);
